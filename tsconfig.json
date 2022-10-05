@@ -20,7 +20,7 @@
     "allowSyntheticDefaultImports": true,
     "declaration": true,
     "resolveJsonModule": true,
-    "strict": true,
+    "strict": false,
     "noImplicitAny": false
   },
   "include": [

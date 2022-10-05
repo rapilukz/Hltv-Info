@@ -22,7 +22,7 @@ class ExtendedClient extends Client {
 
 
   private async SlashComamndHandler() {
-    const GuildID = process.env.GUILD_ID as string;
+    const GuildID = process.env.TEST_GUILD_ID as string;
 
     const SlashcommandPath = path.join(__dirname, '..', 'SlashCommands');
     readdirSync(SlashcommandPath).forEach((dir) => {

@@ -6,10 +6,10 @@ export const command: SlashCommand = {
     category: 'Util',
     description: 'Test Command',
     data: new SlashCommandBuilder()
-    .setName('ping')
-    .setDescription('Ping the bot')
-    .setDefaultMemberPermissions(PermissionFlagsBits.SendMessages),
+        .setName('ping')
+        .setDescription('Ping the bot')
+        .setDefaultMemberPermissions(PermissionFlagsBits.SendMessages),
     run: async (interaction: CommandInteraction) => {
         interaction.reply('Pong!');
-    }
-}
+    },
+};

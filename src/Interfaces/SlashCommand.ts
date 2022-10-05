@@ -1,5 +1,5 @@
-import { SlashCommandBuilder } from '@discordjs/builders';
-import { CommandInteraction, PermissionResolvable } from 'discord.js';
+import { SlashCommandBuilder, SlashCommandSubcommandsOnlyBuilder } from '@discordjs/builders';
+import { CommandInteraction, Interaction } from 'discord.js';
 
 export interface Run {
   (interaction: CommandInteraction);
@@ -7,8 +7,7 @@ export interface Run {
 
 export interface SlashCommand {
   category: string;
-  userPermissions?: PermissionResolvable[];
-  data: Omit<SlashCommandBuilder, 'addSubcommand' | 'addSubcommandGroup'>;
+  data: Omit<SlashCommandSubcommandsOnlyBuilder, 'addSubcommand' | 'addSubcommandGroup'>;
   developer?: boolean;
   description: string;
   run: Run;
