@@ -1,4 +1,4 @@
-* [ ] Finish Find player by name (send stats via Embed)
+* [x] Finish Find player by name (send stats via Embed)
 * [ ] Create Find Team by name
 * [ ] Teams Rankings
 * [ ] Get news
