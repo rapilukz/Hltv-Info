@@ -1,6 +1,6 @@
 import { CONFIG, loadContent } from '../config';
 
-interface IPlayer {
+export interface IPlayer {
   id: string;
   team: string;
   image: string;
