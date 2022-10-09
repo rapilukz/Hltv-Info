@@ -25,15 +25,10 @@ export const command: SlashCommand = {
     if (!playerData) return interaction.reply({ content: `This player was not found, try again`, ephemeral: true });
     const playerEmbed = new EmbedBuilder()
       .setColor('Green')
-      .setTitle(`${playerData.nickname}'s hltv stats `)
+      .setTitle(`${playerData.fullName}'s hltv stats `)
       .setThumbnail(playerData.image)
       .setURL(playerData.url)
       .setFields(
-        {
-          name: '✏ Name',
-          value: playerData.name,
-          inline: true      
-        },
         {
           name: '🕐 Age',
           value: playerData.age.toString(),
@@ -50,13 +45,13 @@ export const command: SlashCommand = {
           inline: true      
         },
         {
-          name: '🎖 Rating',
-          value: playerData.rating.toString(),
+          name: '🎯 Headshot',
+          value: playerData.headshots.toString() + '%',
           inline: true      
         },
         {
-          name: '🎯 Headshot',
-          value: playerData.headshots.toString() + '%',
+          name: '🎖 Rating',
+          value: playerData.rating.toString(),
           inline: true      
         },
         {
@@ -68,6 +63,11 @@ export const command: SlashCommand = {
           name: '☠ Kdr',
           value: playerData.kpr.toString(),
           inline: true
+        },
+        {
+          name: '🔫 Kast',
+          value: playerData.kast.toString() + '%',
+          inline: true      
         },
         {
           name: '💣 Impact',

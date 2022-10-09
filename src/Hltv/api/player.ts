@@ -7,6 +7,7 @@ interface IPlayer {
   nickname: string;
   name: string;
   fullName: string;
+  kast: number 
   age: number;
   country: string;
   rating: number;
@@ -56,6 +57,7 @@ export async function getPlayerData(id: string, nickname: string): Promise<IPlay
   const impact = parseFloat(statRow2.eq(0).find('.summaryStatBreakdownDataValue').text());
   const adr = parseFloat(statRow2.eq(1).find('.summaryStatBreakdownDataValue').text());
   const kpr = parseFloat(statRow2.eq(2).find('.summaryStatBreakdownDataValue').text());
+  const kast = parseFloat(statRow1.eq(2).find('.summaryStatBreakdownDataValue').text())
 
   const additionalStats = $('.statistics .columns .col');
   const headshots = parseFloat(additionalStats.eq(0).children('.stats-row').eq(1).children('span').eq(1).text());
@@ -70,6 +72,7 @@ export async function getPlayerData(id: string, nickname: string): Promise<IPlay
     nickname,
     name: playerName,
     age,
+    kast,
     country,
     rating,
     impact,
