@@ -5,7 +5,7 @@ import {
 } from 'discord.js';
 import path from 'path';
 import { readdirSync } from 'fs';
-import { Command, SlashCommand } from '../Interfaces';
+import { SlashCommand } from '../Interfaces';
 import dotenv from 'dotenv';
 import { REST } from '@discordjs/rest';
 import { Routes } from 'discord-api-types/v9';
@@ -15,11 +15,7 @@ dotenv.config();
 class ExtendedClient extends Client {
   public SlashCommands: Collection<string, SlashCommand> = new Collection();
   public SlashCommandsArray: UserApplicationCommandData[] = [];
-  public events: Collection<string, Command> = new Collection();
-  public cooldowns: Collection<string, Collection<string, number>> = new Collection();
-  public categories: Set<string> = new Set();
-  public aliases: Collection<string, Command> = new Collection();
-
+  public events: Collection<string, SlashCommand> = new Collection();
 
   private async SlashComamndHandler() {
     const GuildID = process.env.TEST_GUILD_ID as string;
