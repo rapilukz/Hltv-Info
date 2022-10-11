@@ -52,7 +52,9 @@ async function findPlayer(interaction: CommandInteraction) {
 
 async function findTeam(interaction: CommandInteraction) {
   const data = interaction.options.get('name').value.toString();
-  const TeamData = await HLTV.getTeamByName(data);
+  const teamData = await HLTV.getTeamByName(data);
 
-  interaction.reply({ content: `finding  team ${data}` });
+  if(!teamData) return interaction.reply({ content: `This team was not found, try again`, ephemeral: true });
+  
+  interaction.reply({ content: `finding  team ${teamData}` });
 }

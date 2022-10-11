@@ -7,7 +7,7 @@ export interface IPlayer {
   nickname: string;
   name: string;
   fullName: string;
-  kast: number 
+  kast: number;
   age: number;
   country: string;
   rating: number;
@@ -57,12 +57,12 @@ export async function getPlayerData(id: string, nickname: string): Promise<IPlay
   const impact = parseFloat(statRow2.eq(0).find('.summaryStatBreakdownDataValue').text());
   const adr = parseFloat(statRow2.eq(1).find('.summaryStatBreakdownDataValue').text());
   const kpr = parseFloat(statRow2.eq(2).find('.summaryStatBreakdownDataValue').text());
-  const kast = parseFloat(statRow1.eq(2).find('.summaryStatBreakdownDataValue').text())
+  const kast = parseFloat(statRow1.eq(2).find('.summaryStatBreakdownDataValue').text());
 
   const additionalStats = $('.statistics .columns .col');
   const headshots = parseFloat(additionalStats.eq(0).children('.stats-row').eq(1).children('span').eq(1).text());
 
-  const country = mainTableContent.find('.summaryRealname').find('img').attr('alt')
+  const country = mainTableContent.find('.summaryRealname').find('img').attr('alt');
 
   return {
     id,
@@ -86,16 +86,17 @@ export async function getPlayerData(id: string, nickname: string): Promise<IPlay
 async function getPlayerId(name: string): Promise<string> {
   const $ = await loadContent(BASE_URL);
 
-  const html = $('table.stats-table tbody td.playerCol')
-    .filter(function () {
-      return $(this).text().indexOf(name) > -1;
-    })
-    .html();
+  try {
+    const id = $('table.stats-table tbody td.playerCol')
+      .filter(function () {
+        return $(this).text().indexOf(name) > -1;
+      })
+      .find('a')
+      .attr('href')
+      .split('/')[3];
 
-  if (!html) return;
-
-  const id = html.split('<a')[1].match(/(\d+)/);
-
-  return id[0];
+    return id;
+  } catch (e) {
+    return;
+  }
 }
-

@@ -9,8 +9,9 @@ export const CONFIG = {
   RESULTS: 'results',
   MATCHES: 'matches',
   PLAYERS: 'stats/players',
-  TEAMS: 'ranking/teams',
+  TEAMS: 'stats/teams',
   TEAM: 'team',
+  DATA_FILTER: '?minMapCount=130'
 };
 
 export const MAPS = {
