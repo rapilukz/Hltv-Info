@@ -3,6 +3,7 @@ import { SlashCommandBuilder } from '@discordjs/builders';
 import { CommandInteraction, PermissionFlagsBits, CommandInteractionOptionResolver } from 'discord.js';
 import HLTV from '../../Hltv';
 import { createPlayerEmbed } from '../../Embeds/player';
+import { createTeamEmbed } from '../../Embeds/team';
 
 export const command: SlashCommand = {
   category: 'Hltv',
@@ -36,7 +37,7 @@ export const command: SlashCommand = {
       team: async () => await findTeam(interaction),
     };
 
-    await commandHandler[command]()
+    await commandHandler[command]();
   },
 };
 
@@ -54,7 +55,8 @@ async function findTeam(interaction: CommandInteraction) {
   const data = interaction.options.get('name').value.toString();
   const teamData = await HLTV.getTeamByName(data);
 
-  if(!teamData) return interaction.reply({ content: `This team was not found, try again`, ephemeral: true });
-  
-  interaction.reply({ content: `finding  team ${teamData}` });
+  if (!teamData) return interaction.reply({ content: `This team was not found, try again`, ephemeral: true });
+
+  const embed = await createTeamEmbed(teamData);
+  interaction.reply({ embeds: [embed], content: teamData.url });
 }

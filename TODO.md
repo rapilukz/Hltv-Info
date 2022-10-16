@@ -1,5 +1,5 @@
 * [x] Finish Find player by name (send stats via Embed)
-* [ ] Create Find Team by name
+* [x] Create Find Team by name
 * [ ] Teams Rankings
 * [ ] Get news
 * [ ] Follow and send Notifications (TOP 10 teams or Followed Teams)

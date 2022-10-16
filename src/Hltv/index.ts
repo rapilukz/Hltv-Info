@@ -3,5 +3,5 @@ import { getTeamByName } from './api/team';
 
 export default {
     getPlayerByName,
-    getTeamByName
+    getTeamByName,
 };
