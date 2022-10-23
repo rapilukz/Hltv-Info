@@ -9,7 +9,7 @@ export const CONFIG = {
   RESULTS: 'results',
   MATCHES: 'matches',
   PLAYERS: 'stats/players',
-  TEAMS: 'stats/teams',
+  TEAMS: 'ranking/teams',
   TEAM: 'team',
   DATA_FILTER: '?minMapCount=130'
 };

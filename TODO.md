@@ -2,7 +2,6 @@
 * [x] Create Find Team by name
 * [ ] Teams Rankings
 * [ ] Get news
-* [ ] Follow and send Notifications (TOP 10 teams or Followed Teams)
 * [ ] Upcoming Matches
 * [ ] Upcoming Events
 * [ ] Player lists (w/ filter)
