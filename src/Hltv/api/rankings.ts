@@ -1,20 +1,34 @@
 import { CONFIG, loadContent } from '../config';
 
 interface ITeam {
-    id: number,
-    rankinng: number,
-    name: string
+  id: number;
+  ranking: number;
+  name: string;
 }
 
 export async function getTopTeams(): Promise<ITeam[]> {
-    const url = `${CONFIG.BASE}/${CONFIG.TEAMS}`
+  const url = `${CONFIG.BASE}/${CONFIG.TEAMS}`;
 
-    const $ = await loadContent(url)
+  const $ = await loadContent(url);
 
-    const allContent = $('.ranked-team');
-    const teams: ITeam[] = []
+  const allContent = $('.ranked-team');
+  const teams: ITeam[] = [];
 
-    
+  allContent.map((_i, element) => {
+    const el = $(element);
 
-    return 
+    const id = Number((el.find('.moreLink').attr('href') as string).split('/')[2]);
+    const ranking = parseInt(el.find('.position').text().replace('#', ''), 10);
+    const name = el.find('.teamLine').find('.name').text();
+
+    const response: ITeam = {
+        id, 
+        ranking,
+        name
+    }
+
+    teams[teams.length] = response  
+  });
+
+  return teams;
 }
