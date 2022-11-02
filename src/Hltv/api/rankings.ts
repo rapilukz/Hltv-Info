@@ -1,6 +1,6 @@
 import { CONFIG, loadContent } from '../config';
 
-interface ITeam {
+export interface ITeam {
   id: number;
   ranking: number;
   name: string;
