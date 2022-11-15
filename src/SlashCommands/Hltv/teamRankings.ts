@@ -1,10 +1,10 @@
 import { SlashCommand } from '../../Interfaces';
-import { ButtonBuilder, SlashCommandBuilder } from '@discordjs/builders';
-import { ActionRowBuilder, ButtonStyle, CommandInteraction, EmbedBuilder, PermissionFlagsBits } from 'discord.js';
+import { SlashCommandBuilder } from '@discordjs/builders';
+import { CommandInteraction, EmbedBuilder, PermissionFlagsBits } from 'discord.js';
 import HLTV from '../../Hltv';
 import { ITeam } from '../../Hltv/api/rankings';
 import { CONFIG } from '../../Hltv/config';
-import { sendPaginationEmbed } from '../../Client/embedPagination';
+import { sendPaginationEmbed } from '../../Functions/pagination';
 
 export const command: SlashCommand = {
   category: 'Hltv',
